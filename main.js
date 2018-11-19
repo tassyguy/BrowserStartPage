@@ -106,8 +106,8 @@ function clearSubMenu(event, id) {
     var entryID = idName.indexOf('-') > -1 ? idName.split('-')[0] : idName;
     var entry = document.getElementById(entryID);
     // submenu.style.display = "none";
-    submenu.style.width = "0"
-    submenu.style.paddingLeft = "0"
+    submenu.style.width = "0";
+    submenu.style.paddingLeft = "0";
     submenu.style.color = "transparent";
     entry.style.backgroundColor = backgroundColor;
 }

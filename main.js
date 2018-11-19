@@ -29,7 +29,8 @@ color1 = window.getComputedStyle(document.getElementById("education-items"), nul
 color2 = window.getComputedStyle(document.getElementById("communication-items"), null)["background-color"];
 color3 = window.getComputedStyle(document.getElementById("entertainment-items"), null)["background-color"];
 color4 = window.getComputedStyle(document.getElementById("programming-items"), null)["background-color"];
-color5 = window.getComputedStyle(document.getElementById("misc-items"), null)["background-color"];
+color5 = window.getComputedStyle(document.getElementById("work-items"), null)["background-color"];
+color6 = window.getComputedStyle(document.getElementById("misc-items"), null)["background-color"];
 
 // Generate key for colors
 var colorDict = {
@@ -37,7 +38,8 @@ var colorDict = {
     "communication-items": color2,
     "entertainment-items": color3,
     "programming-items": color4,
-    "misc-items": color5
+    "work-items": color5,
+    "misc-items": color6
 };
 
 
@@ -64,13 +66,13 @@ function highlightLink(event, element) {
     var link;
     if (event == null) {
         link = element;
-    } else { 
+    } else {
         link = event.target;
     }
-    link.style.fontWeight = "bold"; 
+    link.style.fontWeight = "bold";
 }
 function clearLink(event, element) {
-    var link 
+    var link
     if (event == null) {
         link = element;
     } else {
@@ -79,9 +81,9 @@ function clearLink(event, element) {
     link.style.fontWeight = "inherit";
 }
 function highlightNextLink(direction, links) {
-    clearLink(null, links[linkNumber]); 
+    clearLink(null, links[linkNumber]);
     if (direction == UP) {
-        linkNumber -= 2;    
+        linkNumber -= 2;
     } else if (direction == DOWN) {
         linkNumber += 2;
     }
@@ -158,11 +160,11 @@ document.onkeydown = function(evt) {
 
     // Handle keypresses
     navKeys = ['&', '(', '\'', '%'];
-    
+
     // Initialize keyboard navigation
     if (navKeys.includes(charStr) && !keySelection) {
         var firstEntry = entries[0].id;
-        
+
         entryNumber = 0;
         var hoveredEntryIndex = getHoveredEntry();
         // Change index to current hovered entry index
@@ -192,7 +194,7 @@ document.onkeydown = function(evt) {
     }
     var highlightedSubmenu = submenus[entryNumber]
     var links = highlightedSubmenu.children;
-    
+
     if (!isNaN(parseInt(charStr, 10))) {
         numSelection = true;
         if (!subNumSelection) {
@@ -223,7 +225,7 @@ document.onkeydown = function(evt) {
     if (keySelection) {
             if (charCode == 13 && linkSelection) {
             siteLink = links[linkNumber].href;
-            window.location.href = siteLink;    
+            window.location.href = siteLink;
         } else if (charStr == RIGHT && !linkSelection) {
             linkNumber = 0;
             highlightLink(null, links[linkNumber]);
